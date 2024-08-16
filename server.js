@@ -19,6 +19,7 @@ app.use('/book',authentication,bookRouter)
 
 app.get('/',(req,res)=>{
     console.log('this is home page')
+    res.send('this is home page new')
 })
 
 
