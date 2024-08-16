@@ -24,7 +24,7 @@ router.post('/register',async(req,res)=>{
                         await newuser.save()
                         res.status(201).json({ msg: 'User registered successfully' });
                     } catch (error) {
-                        res.status(500).json({ msg: 'Error saving user to the database' });
+                        res.status(500).json({ msg: `Error saving user to the database ${error}` });
                     }
             });
         };
@@ -48,7 +48,7 @@ router.post('/login',async(req,res)=>{
 
         res.json({ token });
     } catch (error) {
-        
+        res.status(500).json({ msg: `erro in login pleae try again  ${error}` });
     }
 })
 

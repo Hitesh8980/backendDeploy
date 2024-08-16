@@ -71,8 +71,9 @@ router.patch('/update-book/:id',authorize('CREATOR'),async(req,res)=>{
         res.status(200).json(updatedBook);
         
     } catch (error) {
-        return res.status(500).json({ msg: 'Error updating book' });
+        return res.status(500).json({ msg: `Error updating book${error}` });
     }
+
 });
 router.delete('/delete-book/:id',authorize('CREATOR'),async(req,res)=>{
     try {
@@ -87,7 +88,7 @@ router.delete('/delete-book/:id',authorize('CREATOR'),async(req,res)=>{
         res.status(200).json({ msg: 'Book deleted successfully.' });
         
     } catch (error) {
-        return res.status(500).json({ msg: 'Error deleting book' });   
+        return res.status(500).json({ msg: `Error deleting book ${error}` });   
     }
 })
 module.exports=router
